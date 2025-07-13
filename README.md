@@ -29,7 +29,7 @@ This project is a custom 1-bit computer, built from scratch using logic gates, f
 
         Transistor logic for registers, mux, and counters
 
-🧠 Instruction Format
+* Instruction Format
 
 Each instruction is 4 bits:
 
@@ -37,11 +37,17 @@ Each instruction is 4 bits:
 |   D   |   S   |   I   |   H   |
 
 Bit	Name	Description
+
 3	D	Destination (0 = A, 1 = B)
+
 2	S	Source or Value (0/1 or reg select)
+
 1	I	0 = COPY reg, 1 = LOAD immediate
 0	H	HALT if set
-🔁 Supported Instructions
+
+
+*Supported Instructions
+
 Instruction	Binary	Decimal	Meaning
 LOAD 1 → A	0110	6	A = 1
 LOAD 0 → A	0010	2	A = 0
