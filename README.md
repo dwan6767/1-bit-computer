@@ -1,13 +1,13 @@
 # 1-bit-computer
 ![lablledpicture](https://github.com/user-attachments/assets/c20e71e7-5ede-4cbc-841c-578488daa07e)
 
-🧠 1-Bit CPU Emulator & Hardware Build
+ 1-Bit CPU Emulator & Hardware Build
 
-# 🧠 1-Bit Logic Gate Computer
+#  1-Bit Logic Gate Computer
 
 A minimalist 1-bit CPU built using logic gate ICs. It uses diode-ROM and a 2-bit program counter. All logic is hardwired.
 
-## 🛠 Architecture
+## Architecture
 
 - **Registers**:  
   - A = address 0  
@@ -16,7 +16,7 @@ A minimalist 1-bit CPU built using logic gate ICs. It uses diode-ROM and a 2-bit
 - **ROM**: 4×4-bit (diode-based)
 - **PC**: 2-bit counter
 
-## 🧮 Instructions
+##  Instructions
 
 | I | H | A2 | A1 | Meaning                   |
 |---|---|----|----|---------------------------|
@@ -33,14 +33,14 @@ A minimalist 1-bit CPU built using logic gate ICs. It uses diode-ROM and a 2-bit
 3. Increment PC  
 4. Halt if `H = 1`
 
-## 🧰 Built With
+##  Built With
 
 - Logic gate ICs (7400, 7404, 7432, etc.)  
 - D flip-flops for registers and PC  
 - Diode matrix ROM  
 - LEDs for visual debugging
 
-## 💡 Sample Program
+##  Sample Program
 
 | Addr | I H A2 A1 | Binary | Description         |
 |------|-----------|--------|---------------------|
@@ -49,7 +49,7 @@ A minimalist 1-bit CPU built using logic gate ICs. It uses diode-ROM and a 2-bit
 | 2    | 0 0 0 1   | `0001` | Copy B → A          |
 | 3    | 0 0 0 0   | `0000` | Copy A → A (noop)   |
 
-*Supported Instructions
+## Supported Instructions
 
 Instruction	Binary	Decimal	Meaning
 LOAD 1 → A	
