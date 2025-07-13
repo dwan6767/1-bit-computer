@@ -49,8 +49,13 @@ Bit	Name	Description
 *Supported Instructions
 
 Instruction	Binary	Decimal	Meaning
-LOAD 1 → A	0110	6	A = 1
-LOAD 0 → A	0010	2	A = 0
-COPY A → B	1000	8	B = A
-COPY B → A	0100	4	A = B
-COPY A → A + HALT	0001	1	A stays same, CPU halts
+LOAD 1 → A	
+0110	6	A = 1
+LOAD 0 → A
+	0010	2	A = 0
+COPY A → B	
+1000	8	B = A
+COPY B → A	
+0100	4	A = B
+COPY A → A + HALT
+	0001	1	A stays same, CPU halts
