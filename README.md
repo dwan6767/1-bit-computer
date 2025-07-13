@@ -3,48 +3,51 @@
 
 🧠 1-Bit CPU Emulator & Hardware Build
 
-This project is a custom 1-bit computer, built from scratch using logic gates, flip-flops, and transistors — backed by a terminal emulator that mimics the real hardware.
+# 🧠 1-Bit Logic Gate Computer
 
-    Fully documented, manually wired, and mentally brutal — no microcontrollers, no BS. Just logic.
+A minimalist 1-bit CPU built using logic gate ICs. It uses diode-ROM and a 2-bit program counter. All logic is hardwired.
 
-📦 Features
+## 🛠 Architecture
 
-    1-bit Registers: A & B (real or simulated)
+- **Registers**:  
+  - A = address 0  
+  - B = address 1
+- **Instruction format**: `[I][H][A2][A1]` (4-bit)
+- **ROM**: 4×4-bit (diode-based)
+- **PC**: 2-bit counter
 
-    4x4 ROM: 4 instructions, 4-bit wide each
+## 🧮 Instructions
 
-    Opcode Format: H I S D (1-bit each)
+| I | H | A2 | A1 | Meaning                   |
+|---|---|----|----|---------------------------|
+| 0 | 0 | dst | src | COPY: src → dst         |
+| 1 | 0 | dst | val | LOAD: val (0/1) → dst   |
+| * | 1 |  *  |  *  | HALT after execution     |
 
-    Terminal Emulator in C
+## ⚙ Execution Flow
 
-    Blinking LED Output via terminal or real register output
+1. Fetch 4-bit instruction from ROM[PC]  
+2. Decode and execute:  
+   - If `I = 0`: Copy `A1` → `A2`  
+   - If `I = 1`: Load value `A1` → `A2`  
+3. Increment PC  
+4. Halt if `H = 1`
 
-    Optional clock selection by user
+## 🧰 Built With
 
-    Full hardware logic implemented with:
+- Logic gate ICs (7400, 7404, 7432, etc.)  
+- D flip-flops for registers and PC  
+- Diode matrix ROM  
+- LEDs for visual debugging
 
-        Diodes for ROM
+## 💡 Sample Program
 
-        74LS series gates for control logic
-
-        Transistor logic for registers, mux, and counters
-
-* Instruction Format
-
-Each instruction is 4 bits:
-
-| Bit 3 | Bit 2 | Bit 1 | Bit 0 |
-|   D   |   S   |   I   |   H   |
-
-Bit	Name	Description
-
-3	D	Destination (0 = A, 1 = B)
-
-2	S	Source or Value (0/1 or reg select)
-
-1	I	0 = COPY reg, 1 = LOAD immediate
-0	H	HALT if set
-
+| Addr | I H A2 A1 | Binary | Description         |
+|------|-----------|--------|---------------------|
+| 0    | 1 1 0 1   | `1101` | Load 1 → A, halt    |
+| 1    | 0 0 1 0   | `0010` | Copy A → B          |
+| 2    | 0 0 0 1   | `0001` | Copy B → A          |
+| 3    | 0 0 0 0   | `0000` | Copy A → A (noop)   |
 
 *Supported Instructions
 
